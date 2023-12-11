@@ -102,8 +102,8 @@ elseif(${IDF_TARGET} STREQUAL "esp32s3")
     add_custom_command(
         OUTPUT ${image_file}
         COMMENT "Move and Pack models..."
-        COMMAND python ${MVMODEL_EXE} -d1 ${SDKCONFIG} -d2 ${COMPONENT_PATH}
-        DEPENDS ${SDKCONFIG}
+        COMMAND python ${MVMODEL_EXE} -d1 ${PROJECT_DIR} -d2 ${COMPONENT_PATH}
+        DEPENDS ${PROJECT_DIR}/sdkconfig
         VERBATIM)
 
     add_custom_target(srmodels_bin ALL DEPENDS ${image_file})
